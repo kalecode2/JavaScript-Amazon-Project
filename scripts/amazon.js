@@ -57,7 +57,7 @@ products.forEach((product) => {
 // Use the DOM to print the data.
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-// cart.
+// making add to cart button interactive.
 document.querySelectorAll('.js-add-to-cart')
    .forEach((button) => {
       button.addEventListener('click', () => {
@@ -78,6 +78,14 @@ document.querySelectorAll('.js-add-to-cart')
                quantity: 1
             });
          }
-         console.log(cart);
+
+         // calculate cart quantity and put on the page.
+         let cartQuantity = 0;
+
+          cart.forEach((item) => {
+            cartQuantity += item.quantity;
+         });
+
+         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
       })
    });
